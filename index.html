@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopVN - Cửa hàng thời trang</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2><i class="fas fa-shopping-bag"></i> ShopVN</h2>
+            </div>
+            <nav class="nav">
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Giới thiệu</a>
+                <a href="#contact">Liên hệ</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Thời trang thời thượng</h1>
+            <p>Khám phá bộ sưu tập mới nhất với giá tốt nhất</p>
+            <button class="cta-btn" onclick="scrollToProducts()">Mua ngay</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Sản phẩm nổi bật</h2>
+            <div class="filters">
+                <select id="categoryFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="ao">Áo</option>
+                    <option value="quan">Quần</option>
+                    <option value="giay">Giày</option>
+                </select>
+                <select id="sortFilter">
+                    <option value="name">Tên A-Z</option>
+                    <option value="price-asc">Giá tăng dần</option>
+                    <option value="price-desc">Giá giảm dần</option>
+                </select>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products sẽ được load bằng JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Giỏ hàng</h3>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items sẽ được load bằng JS -->
+            </div>
+            <div class="cart-total">
+                <h3>Tổng: <span id="cartTotal">0</span> VNĐ</h3>
+                <button class="checkout-btn" onclick="checkout()">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content product-modal">
+            <div class="modal-header">
+                <h3 id="productTitle"></h3>
+                <span class="close" id="closeProduct">&times;</span>
+            </div>
+            <div class="product-details">
+                <img id="productImage" src="" alt="">
+                <div class="product-info">
+                    <h3 id="productPrice"></h3>
+                    <p id="productDescription"></p>
+                    <div class="product-actions">
+                        <input type="number" id="quantityInput" value="1" min="1">
+                        <button class="add-to-cart-btn" onclick="addToCartFromModal()">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ShopVN. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
