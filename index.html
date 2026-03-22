@@ -3,312 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Việt Social Services - Tăng Trưởng Social Media</title>
+    <title>Thanh Việt Social Services</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- Loading Screen -->
-    <div id="loader" class="loader">
-        <div class="loader-content">
-            <div class="loader-icon">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <p>Đang tải...</p>
-        </div>
+
+<!-- Loader -->
+<div id="loader" class="loader">
+    <div class="loader-content">
+        <i class="fas fa-rocket loader-icon"></i>
+        <p>Đang tải...</p>
     </div>
+</div>
 
-    <!-- Floating Contact Button -->
-    <div class="floating-contact">
-        <a href="https://t.me/thanhviet" class="contact-btn telegram" target="_blank">
-            <i class="fab fa-telegram-plane"></i>
-        </a>
-        <a href="https://zalo.me/0123456789" class="contact-btn zalo" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+<!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <h2>Thanh Việt</h2>
+
+        <ul class="nav-menu">
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+    <h1>Tăng Tốc Social Media</h1>
+
+    <div class="hero-stats">
+        <div class="stat-number" data-target="500000">0</div>
+        <div class="stat-number" data-target="10000000">0</div>
+        <div class="stat-number" data-target="99">0</div>
     </div>
+</section>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h2>Thanh Việt</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Trang chủ</a></li>
-                <li><a href="#services" class="nav-link">Dịch vụ</a></li>
-                <li><a href="#pricing" class="nav-link">Bảng giá</a></li>
-                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
-            </ul>
-            <a href="#order" class="cta-button">Bắt đầu</a>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<!-- Order -->
+<section id="order" class="order">
+    <form id="orderForm">
+        <select id="serviceSelect" required>
+            <option value="">Chọn dịch vụ</option>
+            <option value="tiktok">TikTok</option>
+        </select>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="gradient-text">Tăng Tốc Social Media</span>
-                <br>Của Bạn Ngay Hôm Nay
-            </h1>
-            <p class="hero-subtitle">
-                Dịch vụ tăng trưởng nhanh chóng, an toàn và giá rẻ nhất thị trường
-            </p>
-            <div class="hero-buttons">
-                <a href="#order" class="btn-primary">Đặt Hàng Ngay</a>
-                <a href="#services" class="btn-secondary">Xem Dịch Vụ</a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number" data-target="500K">0</div>
-                <span>Khách hàng</span>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="10M">0</div>
-                <span>Đơn hàng</span>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="99">0</div>
-                <span>% Hài lòng</span>
-            </div>
-        </div>
-    </section>
+        <input type="url" id="linkInput" placeholder="Link" required>
+        <input type="number" id="quantityInput" placeholder="Số lượng" required>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Dịch Vụ Của Chúng Tôi</h2>
-            <p class="section-subtitle">Chọn nền tảng bạn muốn tăng trưởng</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3>TikTok Boost</h3>
-                    <p>Follower, Like, View chất lượng cao - Giao nhanh 24h</p>
-                    <a href="#order" class="service-btn">Chọn TikTok</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <h3>Instagram Boost</h3>
-                    <p>Follower thật, Like, Reels View - Tăng tương tác tự nhiên</p>
-                    <a href="#order" class="service-btn">Chọn Instagram</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </div>
-                    <h3>Facebook Boost</h3>
-                    <p>Follower, Reaction, Share - An toàn 100% không drop</p>
-                    <a href="#order" class="service-btn">Chọn Facebook</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon threads">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Threads Boost</h3>
-                    <p>Follower, Like mới nhất - Tăng trưởng Threads hiệu quả</p>
-                    <a href="#order" class="service-btn">Chọn Threads</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <button type="submit">Đặt hàng</button>
+    </form>
+</section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Bảng Giá Cạnh Tranh</h2>
-            <p class="section-subtitle">Giá rẻ nhất thị trường - Chất lượng cao nhất</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Cơ Bản</h3>
-                        <div class="price">99K</div>
-                        <span>/1000</span>
-                    </div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Giao hàng 24h</li>
-                        <li><i class="fas fa-check"></i> Hỗ trợ 24/7</li>
-                        <li><i class="fas fa-check"></i> Hoàn tiền 100%</li>
-                    </ul>
-                    <a href="#order" class="pricing-btn">Chọn gói</a>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Phổ biến nhất</div>
-                    <div class="pricing-header">
-                        <h3>Tiêu chuẩn</h3>
-                        <div class="price">199K</div>
-                        <span>/1000</span>
-                    </div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Giao siêu tốc 6h</li>
-                        <li><i class="fas fa-check"></i> Tài khoản chất lượng cao</li>
-                        <li><i class="fas fa-check"></i> Không drop 30 ngày</li>
-                        <li><i class="fas fa-check"></i> Ưu tiên hỗ trợ</li>
-                    </ul>
-                    <a href="#order" class="pricing-btn">Chọn gói</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                        <div class="price">299K</div>
-                        <span>/1000</span>
-                    </div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Giao ngay lập tức</li>
-                        <li><i class="fas fa-check"></i> Real accounts 100%</li>
-                        <li><i class="fas fa-check"></i> Bảo hành vĩnh viễn</li>
-                        <li><i class="fas fa-check"></i> Hỗ trợ VIP 24/7</li>
-                    </ul>
-                    <a href="#order" class="pricing-btn">Chọn gói</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Tại Sao Chọn Thanh Việt?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Giao Hàng Siêu Tốc</h3>
-                    <p>Từ 6h đến ngay lập tức tùy gói dịch vụ</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Tài Khoản Chất Lượng</h3>
-                    <p>Real accounts, tương tác tự nhiên, không drop</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Hỗ Trợ 24/7</h3>
-                    <p>Telegram, Zalo hỗ trợ liên tục mọi lúc</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>An Toàn Tuyệt Đối</h3>
-                    <p>Không ảnh hưởng tài khoản, bảo mật 100%</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Section -->
-    <section id="order" class="order">
-        <div class="container">
-            <h2 class="section-title">Đặt Hàng Ngay</h2>
-            <p class="section-subtitle">Chỉ 3 bước đơn giản để tăng trưởng</p>
-            <form class="order-form" id="orderForm">
-                <div class="form-group">
-                    <label>Dịch vụ</label>
-                    <div class="service-select">
-                        <select id="serviceSelect" required>
-                            <option value="">Chọn dịch vụ</option>
-                            <option value="tiktok-followers">TikTok - Followers</option>
-                            <option value="tiktok-likes">TikTok - Likes</option>
-                            <option value="instagram-followers">Instagram - Followers</option>
-                            <option value="facebook-reactions">Facebook - Reactions</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Link bài viết/tài khoản</label>
-                        <input type="url" id="linkInput" placeholder="https://tiktok.com/@username" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Số lượng</label>
-                        <input type="number" id="quantityInput" placeholder="1000" min="100" required>
-                    </div>
-                </div>
-                <button type="submit" class="btn-primary full-width">Đặt Hàng Ngay</button>
-                <div class="order-info">
-                    <p><i class="fas fa-info-circle"></i> Sau khi đặt hàng, admin sẽ liên hệ xác nhận trong 5 phút</p>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
-            <div class="contact-content">
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-icon telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                        </div>
-                        <h3>Telegram</h3>
-                        <p>@thanhviet_support</p>
-                        <a href="https://t.me/thanhviet" target="_blank">Nhắn tin ngay</a>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon zalo">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>Zalo</h3>
-                        <p>0123 456 789</p>
-                        <a href="https://zalo.me/0123456789" target="_blank">Kết bạn ngay</a>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>support@thanhviet.com</p>
-                        <a href="mailto:support@thanhviet.com">Gửi email</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Thanh Việt</h3>
-                    <p>Tăng trưởng social media chuyên nghiệp</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Trang chủ</a>
-                    <a href="#services">Dịch vụ</a>
-                    <a href="#pricing">Bảng giá</a>
-                    <a href="#contact">Liên hệ</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://t.me/thanhviet" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://zalo.me/0123456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Thanh Việt Social Services. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
