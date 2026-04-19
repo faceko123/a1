@@ -33,8 +33,21 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = "login.html";
   } else {
     currentUser = user;
-    document.body.style.display = "block"; // hiện trang
+    document.body.style.display = "none";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.body.style.display = "block";
+    currentUser = user;
     loadOrders();
+  } else {
+    setTimeout(() => {
+      if (!auth.currentUser) {
+        location.href = "login.html";
+      }
+    }, 500);
+  }
+});
   }
 });
 
