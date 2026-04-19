@@ -1,52 +1,35 @@
-<!-- Firebase -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-  // DÁN config của bạn vào đây
-  const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAv2N-Z-52nxkTAKsJ3iJTt_j2f3jqY4xI",
   authDomain: "quanli-3990e.firebaseapp.com",
   projectId: "quanli-3990e",
-  storageBucket: "quanli-3990e.firebasestorage.app",
+  storageBucket: "quanli-3990e.appspot.com",
   messagingSenderId: "15839288744",
-  appId: "1:15839288744:web:8841eb672050790badd19d",
-  measurementId: "G-15QZWTZ36L"
+  appId: "1:15839288744:web:8841eb672050790badd19d"
 };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-  // ĐĂNG KÝ
-  window.register = function() {
-  let email = document.getElementById("email").value;
-  let pass = document.getElementById("pass").value;
+window.register = function () {
+  const email = document.getElementById("email").value.trim();
+  const pass = document.getElementById("pass").value.trim();
 
-  console.log(email, pass); // check input
+  if (!email || !pass) {
+    alert("Vui lòng nhập đầy đủ!");
+    return;
+  }
 
   createUserWithEmailAndPassword(auth, email, pass)
     .then(() => {
-      alert("OK");
+      alert("Đăng ký thành công!");
+      window.location.href = "login.html";
     })
-    .catch(err => {
-      console.log(err);   // in lỗi ra
-      alert(err.message); // hiện lỗi
+    .catch((err) => {
+      console.error(err);
+      alert(err.message);
     });
-}
-
-  // ĐĂNG NHẬP
-  window.login = function() {
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("pass").value;
-
-    signInWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => {
-        alert("Đăng nhập thành công!");
-        window.location.href = "home.html";
-      })
-      .catch((error) => {
-        alert("Sai tài khoản hoặc mật khẩu!");
-      });
-  }
-</script>
+};
