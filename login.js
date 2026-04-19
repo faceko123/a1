@@ -28,7 +28,7 @@ window.login = function () {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      // phân quyền admin
+    
       if (user.email === "admin@gmail.com") {
         window.location.href = "admin.html";
       } else {
