@@ -20,17 +20,20 @@
 
   // ĐĂNG KÝ
   window.register = function() {
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("pass").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
 
-    createUserWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => {
-        alert("Đăng ký thành công!");
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  }
+  console.log(email, pass); // check input
+
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("OK");
+    })
+    .catch(err => {
+      console.log(err);   // in lỗi ra
+      alert(err.message); // hiện lỗi
+    });
+}
 
   // ĐĂNG NHẬP
   window.login = function() {
