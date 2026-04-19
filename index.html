@@ -1,90 +1,32 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- CSS -->
+  <title>Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="main-card">
+<div class="main-card" style="justify-content:center; align-items:center; flex-direction:column;">
   
-  <div class="form-side">
-    <h1>Sign Up</h1>
+  <h1>Welcome 👋</h1>
 
-    <div class="input-field">
-      <label>Username</label>
-      <input id="user" type="text">
-      <i class="fa fa-user"></i>
-    </div>
-
-    <div class="input-field">
-      <label>Email</label>
-      <input id="email" type="email">
-      <i class="fas fa-envelope"></i>
-    </div>
-
-    <div class="input-field">
-      <label>Password</label>
-      <input id="pass" type="password">
-      <i class="fas fa-lock"></i>
-    </div>
-
-    <button class="signup-btn" onclick="register()">Sign Up</button>
-
-    <p class="footer-text">Already have account?</p>
-  </div>
-
-  <div class="image-side">
-    <div class="image-container">
-      <img src="images/pa.jpeg" alt="image">
-    </div>
-  </div>
+  <button class="signup-btn" onclick="goRegister()">Đăng ký</button>
+  <button class="signup-btn" onclick="goLogin()" style="margin-top:10px;">Đăng nhập</button>
 
 </div>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
-
 <script>
-const SALT = "123abc";
-
-// hash password
-function hash(pass) {
-  return CryptoJS.SHA256(pass + SALT).toString();
+function goRegister() {
+  window.location.href = "register.html";
 }
 
-// đăng ký
-function register() {
-  let user = document.getElementById("user").value;
-  let email = document.getElementById("email").value;
-  let pass = document.getElementById("pass").value;
-
-  if (!user || !email || !pass) {
-    alert("Nhập đầy đủ!");
-    return;
-  }
-
-  if (localStorage.getItem(user)) {
-    alert("Tài khoản đã tồn tại!");
-    return;
-  }
-
-  localStorage.setItem(user, JSON.stringify({
-    email: email,
-    password: hash(pass)
-  }));
-
-  alert("Đăng ký thành công!");
+function goLogin() {
+  window.location.href = "login.html";
 }
 </script>
-<script type="module" src="app.js"></script>
+
 </body>
 </html>
+```
