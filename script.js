@@ -1,48 +1,43 @@
-// Loader FIX
-window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    loader.style.opacity = "0";
-    setTimeout(() => loader.style.display = "none", 500);
-});
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-// Menu
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+const firebaseConfig = {
+  apiKey: "AIzaSy...",
+  authDomain: "quanli-3990e.firebaseapp.com",
+  projectId: "quanli-3990e",
+  storageBucket: "quanli-3990e.appspot.com",
+  messagingSenderId: "15839288744",
+  appId: "1:15839288744:web:8841eb672050790badd19d"
+};
 
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-// Counter FIX (hỗ trợ K, M)
-const counters = document.querySelectorAll(".stat-number");
+window.register = function () {
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
 
-counters.forEach(counter => {
-    const target = +counter.getAttribute("data-target");
-    let count = 0;
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Đăng ký thành công!");
+    })
+    .catch(err => {
+      console.log(err);
+      alert(err.message);
+    });
+};
 
-    const update = () => {
-        count += target / 100;
+window.login = function () {
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
 
-        if (count < target) {
-            counter.innerText = Math.floor(count);
-            requestAnimationFrame(update);
-        } else {
-            if (target >= 1000000) {
-                counter.innerText = (target / 1000000) + "M";
-            } else if (target >= 1000) {
-                counter.innerText = (target / 1000) + "K";
-            } else {
-                counter.innerText = target;
-            }
-        }
-    };
-
-    update();
-});
-
-// Form FIX
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    alert("Đặt hàng thành công!");
-});
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Đăng nhập thành công!");
+      window.location.href = "home.html";
+    })
+    .catch(() => {
+      alert("Sai tài khoản hoặc mật khẩu!");
+    });
+};
