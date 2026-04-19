@@ -14,6 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// LOGIN
 window.login = function () {
   const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("pass").value.trim();
@@ -24,9 +25,15 @@ window.login = function () {
   }
 
   signInWithEmailAndPassword(auth, email, pass)
-    .then(() => {
-      alert("Đăng nhập thành công!");
-      window.location.href = "home.html";
+    .then((userCredential) => {
+      const user = userCredential.user;
+
+      // phân quyền admin
+      if (user.email === "admin@gmail.com") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "home.html";
+      }
     })
     .catch((err) => {
       console.error(err);
