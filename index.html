@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Việt Social Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Loader -->
-<div id="loader" class="loader">
-    <div class="loader-content">
-        <i class="fas fa-rocket loader-icon"></i>
-        <p>Đang tải...</p>
+<div class="main-card">
+  
+  <div class="form-side">
+    <h1>Sign Up</h1>
+
+    <div class="input-field">
+      <label>Username</label>
+      <input id="user" type="text">
+      <i class="fa fa-user"></i>
     </div>
+
+    <div class="input-field">
+      <label>Email</label>
+      <input id="email" type="email">
+      <i class="fas fa-envelope"></i>
+    </div>
+
+    <div class="input-field">
+      <label>Password</label>
+      <input id="pass" type="password">
+      <i class="fas fa-lock"></i>
+    </div>
+
+    <button class="signup-btn" onclick="register()">Sign Up</button>
+
+    <p class="footer-text">Already have account?</p>
+  </div>
+
+  <div class="image-side">
+    <div class="image-container">
+      <img src="images/pa.jpeg" alt="image">
+    </div>
+  </div>
+
 </div>
 
-<!-- Header -->
-<header class="header">
-    <nav class="navbar">
-        <h2>Thanh Việt</h2>
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
 
-        <ul class="nav-menu">
-            <li><a href="#home">Trang chủ</a></li>
-            <li><a href="#services">Dịch vụ</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-        </ul>
+<script>
+const SALT = "123abc";
 
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-</header>
+// hash password
+function hash(pass) {
+  return CryptoJS.SHA256(pass + SALT).toString();
+}
 
-<!-- Hero -->
-<section id="home" class="hero">
-    <h1>Tăng Tốc Social Media</h1>
+// đăng ký
+function register() {
+  let user = document.getElementById("user").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
 
-    <div class="hero-stats">
-        <div class="stat-number" data-target="500000">0</div>
-        <div class="stat-number" data-target="10000000">0</div>
-        <div class="stat-number" data-target="99">0</div>
-    </div>
-</section>
+  if (!user || !email || !pass) {
+    alert("Nhập đầy đủ!");
+    return;
+  }
 
-<!-- Order -->
-<section id="order" class="order">
-    <form id="orderForm">
-        <select id="serviceSelect" required>
-            <option value="">Chọn dịch vụ</option>
-            <option value="tiktok">TikTok</option>
-        </select>
+  if (localStorage.getItem(user)) {
+    alert("Tài khoản đã tồn tại!");
+    return;
+  }
 
-        <input type="url" id="linkInput" placeholder="Link" required>
-        <input type="number" id="quantityInput" placeholder="Số lượng" required>
+  localStorage.setItem(user, JSON.stringify({
+    email: email,
+    password: hash(pass)
+  }));
 
-        <button type="submit">Đặt hàng</button>
-    </form>
-</section>
+  alert("Đăng ký thành công!");
+}
+</script>
 
-<script src="script.js"></script>
 </body>
 </html>
