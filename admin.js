@@ -13,7 +13,7 @@ const firebaseConfig = {
   projectId: "quanli-3990e",
 };
 
-const ADMIN_EMAIL = "admin@gmail.com"; // đổi email admin
+const ADMIN_EMAIL = "facebook7.7.2007@gmail.com"; // đổi email admin
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
